@@ -1,0 +1,36 @@
+<nav>
+  <div class="logo" routerLink="/">
+    <svg width="38" height="38" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40 70 C18 55, 8 40, 8 28 C8 18, 16 10, 26 10 C32 10, 37 13, 40 17 C43 13, 48 10, 54 10 C64 10, 72 18, 72 28 C72 40, 62 55, 40 70Z" stroke="#4BBFDE" stroke-width="4.5" fill="none" stroke-linejoin="round"/>
+      <ellipse cx="34" cy="30" rx="5.5" ry="7" stroke="#4BBFDE" stroke-width="3.5" fill="none"/>
+      <ellipse cx="46" cy="30" rx="5.5" ry="7" stroke="#4BBFDE" stroke-width="3.5" fill="none"/>
+      <ellipse cx="25" cy="36" rx="4.5" ry="6" stroke="#4BBFDE" stroke-width="3.5" fill="none"/>
+      <ellipse cx="55" cy="36" rx="4.5" ry="6" stroke="#4BBFDE" stroke-width="3.5" fill="none"/>
+      <path d="M28 46 Q40 58 52 46 Q48 38 40 36 Q32 38 28 46Z" stroke="#4BBFDE" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+    </svg>
+    <span class="logo-text">Tender<strong>Tails</strong></span>
+  </div>
+  <div class="nav-links">
+    <a routerLink="/"         routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+    <a routerLink="/services" routerLinkActive="active">Services</a>
+    <a routerLink="/booking"  routerLinkActive="active">Book Now</a>
+    <a routerLink="/profile"  routerLinkActive="active">My Account</a>
+  </div>
+  <div class="nav-right">
+    <button class="hamburger" (click)="menuOpen = !menuOpen" [class.open]="menuOpen">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="nav-btn" (click)="openLogin()">Sign In</button>
+    <button class="btn-primary nav-btn-cta" routerLink="/booking">Book a Service</button>
+  </div>
+</nav>
+<div class="mobile-menu" [class.open]="menuOpen" (click)="menuOpen=false">
+  <a routerLink="/"         routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">🏠 Home</a>
+  <a routerLink="/services" routerLinkActive="active">🐾 Services</a>
+  <a routerLink="/booking"  routerLinkActive="active">📅 Book Now</a>
+  <a routerLink="/profile"  routerLinkActive="active">👤 My Account</a>
+  <div class="mob-btns">
+    <button class="btn-outline" (click)="menuOpen=false; openLogin()">Sign In</button>
+    <button class="btn-primary" routerLink="/booking" (click)="menuOpen=false">Book Now</button>
+  </div>
+</div>

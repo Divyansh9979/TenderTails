@@ -1,0 +1,259 @@
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">
+      <span class="badge-dot"></span> Now serving Pune, Mumbai & Bangalore
+    </div>
+    <h1>Your Pet Deserves<br/><em>Tender Loving Care</em></h1>
+    <p>Premium grooming, vet visits, training & home monitoring — by verified professionals who treat your pet like family.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" routerLink="/booking">Book a Service →</button>
+      <button class="btn-outline" routerLink="/services">Explore Services</button>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><span class="trust-icon">⭐</span><span>4.9 Rating</span></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><span class="trust-icon">🛡️</span><span>Verified Pros</span></div>
+      <div class="trust-div"></div>
+      <div class="trust-item"><span class="trust-icon">🐾</span><span>50K+ Pets Served</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-main">
+      <div class="hc-pet">🐶</div>
+      <div class="hc-label">Just groomed!</div>
+      <div class="hc-sub">Max • Golden Retriever</div>
+      <div class="hc-rating">⭐⭐⭐⭐⭐ <span>5.0</span></div>
+    </div>
+    <div class="float-card fc1">
+      <div class="fc-icon">✅</div>
+      <div><div class="fc-title">Booking Confirmed</div><div class="fc-sub">Today 3:00 PM</div></div>
+    </div>
+    <div class="float-card fc2">
+      <div class="fc-icon">📍</div>
+      <div><div class="fc-title">Pro on the way</div><div class="fc-sub">ETA 12 min</div></div>
+    </div>
+    <div class="float-card fc3">
+      <div class="fc-icon">💛</div>
+      <div><div class="fc-title">Loved by 50K+</div><div class="fc-sub">pet parents</div></div>
+    </div>
+    <!-- Decorative blobs -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+  </div>
+</section>
+
+<!-- ══════ HOW IT WORKS ══════ -->
+<section class="hiw-section">
+  <div class="section-header">
+    <div class="eyebrow">Simple & Easy</div>
+    <h2>How TenderTails Works</h2>
+    <p>From tapping "Book" to a happy, pampered pet — in four effortless steps</p>
+  </div>
+  <div class="hiw-grid">
+    <div class="hiw-step">
+      <div class="hiw-num">01</div>
+      <div class="hiw-icon">🎯</div>
+      <h4>Choose a Service</h4>
+      <p>Pick from grooming packages, a-la-carte items, vet visits, or monitoring plans.</p>
+    </div>
+    <div class="hiw-arrow">→</div>
+    <div class="hiw-step">
+      <div class="hiw-num">02</div>
+      <div class="hiw-icon">📅</div>
+      <h4>Book a Slot</h4>
+      <p>Select your preferred date, time, and which of your pets needs care.</p>
+    </div>
+    <div class="hiw-arrow">→</div>
+    <div class="hiw-step">
+      <div class="hiw-num">03</div>
+      <div class="hiw-icon">🏠</div>
+      <h4>Pro Arrives Home</h4>
+      <p>Your verified professional arrives on time with all supplies included.</p>
+    </div>
+    <div class="hiw-arrow">→</div>
+    <div class="hiw-step">
+      <div class="hiw-num">04</div>
+      <div class="hiw-icon">⭐</div>
+      <h4>Happy Pet & Review</h4>
+      <p>Your pet looks (and feels) amazing. Share your 5-star experience!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ GROOMING — PACKAGES TOGGLE + A-LA-CARTE ══════ -->
+<section class="grooming-section" id="grooming">
+  <div class="section-header">
+    <div class="eyebrow">Grooming</div>
+    <h2>Beautiful, Inside & Out</h2>
+    <p>Choose a curated package for the full spa experience, or customize exactly what your pet needs</p>
+  </div>
+
+  <!-- PACKAGE TOGGLE -->
+  <div class="pkg-toggle-wrap">
+    <div class="pkg-toggle">
+      <button [class.active]="pricingTier==='standard'" (click)="pricingTier='standard'">Standard</button>
+      <button [class.active]="pricingTier==='premium'"  (click)="pricingTier='premium'">Premium ✨</button>
+    </div>
+  </div>
+
+  <div class="pkg-cards">
+    <div class="pkg-card" [class.pkg-highlighted]="pricingTier==='premium'">
+      <!-- Standard -->
+      <div class="pkg-header pkg-std">
+        <div class="pkg-badge-wrap" *ngIf="pricingTier==='standard'"><span class="pkg-active-badge">Selected</span></div>
+        <div class="pkg-icon">🛁</div>
+        <div class="pkg-name">Standard Package</div>
+        <div class="pkg-price">₹1,299 <span>/ session</span></div>
+        <div class="pkg-duration">⏱ ~90 min session</div>
+      </div>
+      <ul class="pkg-features">
+        <li class="feat-yes">✓ Bath & Blow-Dry</li>
+        <li class="feat-yes">✓ Nail Trim & Filing</li>
+        <li class="feat-yes">✓ Ear Cleaning</li>
+        <li class="feat-yes">✓ Bandana / Bow Finish</li>
+        <li class="feat-no">✗ Haircut & Styling</li>
+        <li class="feat-no">✗ De-shedding Treatment</li>
+        <li class="feat-no">✗ Teeth Brushing</li>
+        <li class="feat-no">✗ Aromatherapy Coat Spray</li>
+      </ul>
+      <button class="pkg-btn" [class.pkg-btn-active]="pricingTier==='standard'" (click)="bookPackage('standard')">
+        Book Standard →
+      </button>
+    </div>
+
+    <div class="pkg-card pkg-premium-card" [class.pkg-highlighted]="pricingTier==='premium'">
+      <div class="pkg-popular-ribbon">✨ Most Popular</div>
+      <div class="pkg-header pkg-prem">
+        <div class="pkg-icon">💎</div>
+        <div class="pkg-name">Premium Package</div>
+        <div class="pkg-price">₹2,299 <span>/ session</span></div>
+        <div class="pkg-duration">⏱ ~150 min spa session</div>
+      </div>
+      <ul class="pkg-features">
+        <li class="feat-yes">✓ Everything in Standard</li>
+        <li class="feat-yes extra">★ Haircut & Breed Styling</li>
+        <li class="feat-yes extra">★ De-shedding Treatment</li>
+        <li class="feat-yes extra">★ Teeth Brushing</li>
+        <li class="feat-yes extra">★ Aromatherapy Coat Spray</li>
+        <li class="feat-yes extra">★ Post-service Report Card</li>
+      </ul>
+      <button class="pkg-btn pkg-btn-premium" (click)="bookPackage('premium')">
+        Book Premium →
+      </button>
+    </div>
+  </div>
+
+  <!-- A-LA-CARTE CUSTOMIZE -->
+  <div class="alacarte-section">
+    <div class="alacarte-header">
+      <div class="alacarte-badge">🎛️ A-La-Carte · Build Your Own</div>
+      <h3>Only need a nail trim? Just book that.</h3>
+      <p>No bundles required — mix and match exactly what your pet needs today.</p>
+    </div>
+    <div class="alacarte-grid">
+      <div class="alacarte-item" *ngFor="let item of groomingServices" (click)="bookGroomingItem(item)">
+        <div class="ai-icon">{{ item.icon }}</div>
+        <div class="ai-info">
+          <div class="ai-name">{{ item.name }}</div>
+          <div class="ai-desc">{{ item.desc }}</div>
+        </div>
+        <div class="ai-right">
+          <div class="ai-price">{{ item.price }}</div>
+          <button class="ai-add">+ Add</button>
+        </div>
+      </div>
+    </div>
+    <div class="alacarte-note">💡 You can also combine individual items at checkout for a custom bundle discount</div>
+  </div>
+</section>
+
+<!-- ══════ MONITORING SUBSCRIPTION ══════ -->
+<section class="monitoring-section">
+  <div class="section-header">
+    <div class="eyebrow">Pet Monitoring</div>
+    <h2>Peace of Mind, 24/7</h2>
+    <p>Professional home-sitters and check-in visits — choose the frequency that works for your lifestyle</p>
+  </div>
+
+  <div class="monitoring-cards">
+    <div class="mon-card" *ngFor="let plan of monitoringPlans"
+         [class.mon-best]="plan.badge === 'Best Value'"
+         (click)="bookMonitoring(plan)">
+      <div class="mon-best-ribbon" *ngIf="plan.badge">{{ plan.badge }} 🏆</div>
+      <div class="mon-header">
+        <div class="mon-label">{{ plan.label }}</div>
+        <div class="mon-price">{{ plan.price }}<span>{{ plan.unit }}</span></div>
+      </div>
+      <p class="mon-desc">{{ plan.desc }}</p>
+      <ul class="mon-features">
+        <li *ngFor="let f of plan.features">✓ {{ f }}</li>
+      </ul>
+      <button class="mon-btn" [class.mon-btn-best]="plan.badge">
+        {{ plan.badge ? 'Subscribe — Best Value' : 'Book This Plan' }} →
+      </button>
+    </div>
+  </div>
+  <div class="mon-note">All plans include GPS tracking, background-verified sitters, and a dedicated care report after every visit.</div>
+</section>
+
+<!-- ══════ OTHER SERVICES ══════ -->
+<section class="other-services">
+  <div class="section-header">
+    <div class="eyebrow">More Services</div>
+    <h2>Complete Care Under One Roof</h2>
+  </div>
+  <div class="other-grid">
+    <div class="other-card" routerLink="/services">
+      <div class="oc-emoji">🩺</div>
+      <h4>Vet at Home</h4>
+      <p>Licensed vets for check-ups, vaccinations & consultations</p>
+      <div class="oc-price">from ₹999</div>
+    </div>
+    <div class="other-card" routerLink="/services">
+      <div class="oc-emoji">🎓</div>
+      <h4>Training</h4>
+      <p>Certified trainers for obedience, behaviour & tricks</p>
+      <div class="oc-price">from ₹1,499</div>
+    </div>
+    <div class="other-card" routerLink="/services">
+      <div class="oc-emoji">🦮</div>
+      <h4>Dog Walking</h4>
+      <p>GPS-tracked daily walks with post-walk photo reports</p>
+      <div class="oc-price">from ₹299 / walk</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TESTIMONIALS ══════ -->
+<section class="testimonials-section">
+  <div class="section-header">
+    <div class="eyebrow">Stories</div>
+    <h2>Tails of Happy Pet Parents</h2>
+  </div>
+  <div class="tcard-grid">
+    <div class="tcard" *ngFor="let t of testimonials">
+      <div class="tcard-stars">{{ '★'.repeat(t.stars) }}</div>
+      <p>{{ t.text }}</p>
+      <div class="tcard-foot">
+        <div class="tcard-avatar">{{ t.avatar }}</div>
+        <div><div class="tcard-name">{{ t.name }}</div><div class="tcard-pet">{{ t.pet }}</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CTA BAND ══════ -->
+<section class="cta-band">
+  <div class="cta-content">
+    <div class="cta-paw">🐾</div>
+    <h2>Ready to give your pet the TenderTails treatment?</h2>
+    <p>Book in 60 seconds. A verified professional at your door within hours.</p>
+    <div class="cta-btns">
+      <button class="btn-primary" routerLink="/booking">Book Your First Service</button>
+      <button class="btn-outline-sky" routerLink="/services">View All Services</button>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

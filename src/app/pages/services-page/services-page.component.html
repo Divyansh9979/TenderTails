@@ -1,0 +1,50 @@
+<div class="page-hero">
+  <h1>🐾 All Pet Services</h1>
+  <p>Expert care for every need — at your doorstep, on your schedule</p>
+</div>
+
+<section class="services-section">
+  <div class="service-category" *ngFor="let cat of categories">
+    <div class="cat-label">{{ cat.icon }} {{ cat.label }}</div>
+    <h2>{{ cat.heading }}</h2>
+    <div class="services-detail-grid">
+      <div class="svc-card" *ngFor="let svc of cat.services" (click)="bookService(svc)">
+        <div class="svc-card-img">
+          {{ svc.icon }}
+          <span class="svc-badge" [class.popular]="svc.badgeClass === 'popular'" *ngIf="svc.badge">{{ svc.badge }}</span>
+        </div>
+        <div class="svc-info">
+          <h4>{{ svc.title }}</h4>
+          <p>{{ svc.desc }}</p>
+          <div class="svc-meta">
+            <div class="svc-price-info">
+              <strong>{{ svc.price }}</strong>
+              <small>{{ svc.priceNote }}</small>
+            </div>
+            <button class="book-svc-btn" (click)="$event.stopPropagation(); bookService(svc)">Book</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFESSIONALS -->
+<section class="professionals-section">
+  <div class="section-header">
+    <div class="eyebrow">Meet the Team</div>
+    <h2>Our Verified Professionals</h2>
+    <p>Background-checked, certified, and trained in pet handling</p>
+  </div>
+  <div class="pro-grid">
+    <div class="pro-card" *ngFor="let pro of professionals">
+      <div class="pro-avatar">{{ pro.avatar }}</div>
+      <h4>{{ pro.name }}</h4>
+      <div class="pro-role">{{ pro.role }}</div>
+      <div class="pro-rating"><span>★</span> {{ pro.rating }} · {{ pro.reviews }} reviews</div>
+      <div class="pro-jobs">{{ pro.jobs }}</div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

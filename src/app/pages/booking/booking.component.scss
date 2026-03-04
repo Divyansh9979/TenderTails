@@ -1,0 +1,203 @@
+/* ===============================
+   PAGE BACKGROUND
+================================= */
+
+.booking-wrapper {
+  background: linear-gradient(to bottom, #f4f7fb, #ffffff);
+  padding: 60px 20px;
+  min-height: 100vh;
+}
+
+/* ===============================
+   GRID LAYOUT
+================================= */
+
+.booking-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ===============================
+   LEFT FORM CARD
+================================= */
+
+.booking-left {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+/* ===============================
+   RIGHT SUMMARY CARD
+================================= */
+
+.booking-right {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 100px;
+}
+
+/* ===============================
+   TYPOGRAPHY
+================================= */
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.page-subtitle {
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   SERVICE CARDS
+================================= */
+
+.service-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.service-card {
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #e5ecf5;
+  cursor: pointer;
+  transition: 0.25s ease;
+  background: #f9fbff;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+.service-card.active {
+  border-color: #4bbfde;
+  background: #eef9fc;
+}
+
+/* ===============================
+   FORM FIELDS
+================================= */
+
+.form-group {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #1b2f6e;
+}
+
+.form-group input,
+.form-group select {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #dce3f0;
+  font-size: 14px;
+  transition: 0.2s ease;
+  background: #f9fbff;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #4bbfde;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(75,191,222,0.15);
+  outline: none;
+}
+
+/* ===============================
+   BUTTONS
+================================= */
+
+.btn-primary {
+  background: linear-gradient(135deg, #4bbfde, #78d7f0);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(75,191,222,0.3);
+}
+
+.full-width {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* ===============================
+   SUMMARY
+================================= */
+
+.summary-title {
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.summary-total {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e5ecf5;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 900px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-right {
+    position: relative;
+    top: 0;
+  }
+
+  .service-options {
+    grid-template-columns: 1fr;
+  }
+}

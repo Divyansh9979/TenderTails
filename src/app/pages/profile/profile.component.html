@@ -1,0 +1,88 @@
+<div class="profile-container">
+  <!-- HEADER CARD -->
+  <div class="profile-header-card">
+    <div class="profile-avatar-big">👤</div>
+    <div class="profile-header-text">
+      <h2>Divyansh Verma</h2>
+      <p>divyansh&#64;siib.ac.in · +91 98765 43210</p>
+      <div class="member-badge">⭐ Gold Member since Jan 2024</div>
+    </div>
+  </div>
+
+  <div class="profile-grid">
+    <!-- SIDE NAV -->
+    <div class="profile-nav-card">
+      <div class="pnav-item" [class.active]="activeTab==='bookings'" (click)="activeTab='bookings'"><span>📋</span> My Bookings</div>
+      <div class="pnav-item" [class.active]="activeTab==='pets'"     (click)="activeTab='pets'"><span>🐾</span> My Pets</div>
+      <div class="pnav-item" [class.active]="activeTab==='account'"  (click)="activeTab='account'"><span>⚙️</span> Account Settings</div>
+      <div class="pnav-item" [class.active]="activeTab==='saved'"    (click)="activeTab='saved'"><span>💰</span> Offers & Credits</div>
+      <div class="pnav-item signout" (click)="signOut()"><span>🚪</span> Sign Out</div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="profile-content-card">
+
+      <!-- BOOKINGS -->
+      <div *ngIf="activeTab === 'bookings'">
+        <div class="tab-title">My Bookings</div>
+        <div class="booking-item" *ngFor="let b of bookings">
+          <div class="bi-left">
+            <div class="bi-icon">{{ b.icon }}</div>
+            <div class="bi-info"><h4>{{ b.service }}</h4><p>{{ b.detail }}</p></div>
+          </div>
+          <div class="bi-right">
+            <div class="bi-status" [ngClass]="b.status">{{ b.status | titlecase }}</div>
+            <div class="bi-price">{{ b.price }}</div>
+          </div>
+        </div>
+        <button class="btn-primary" routerLink="/booking">+ Book New Service</button>
+      </div>
+
+      <!-- PETS -->
+      <div *ngIf="activeTab === 'pets'">
+        <div class="tab-title">My Pets</div>
+        <div class="pets-grid">
+          <div class="pet-card-p" *ngFor="let pet of pets">
+            <div class="pc-emoji">{{ pet.emoji }}</div>
+            <div><h4>{{ pet.name }}</h4><p>{{ pet.desc }}</p></div>
+          </div>
+          <div class="add-pet-card" (click)="addPet()">➕ Add a New Pet</div>
+        </div>
+      </div>
+
+      <!-- ACCOUNT SETTINGS -->
+      <div *ngIf="activeTab === 'account'">
+        <div class="tab-title">Account Settings</div>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name</label><input type="text" value="Divyansh Verma"/></div>
+          <div class="form-group"><label>Phone</label><input type="tel" value="+91 98765 43210"/></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" value="divyansh@siib.ac.in"/></div>
+        <div class="form-group">
+          <label>City</label>
+          <select><option>Pune</option><option>Mumbai</option><option>Bangalore</option><option>Delhi</option></select>
+        </div>
+        <button class="btn-primary" (click)="saveAccount()">Save Changes</button>
+      </div>
+
+      <!-- OFFERS & CREDITS -->
+      <div *ngIf="activeTab === 'saved'">
+        <div class="tab-title">Offers & Credits</div>
+        <div class="credits-box">
+          <div class="credits-label">🎁 PawCare Credits</div>
+          <div class="credits-amount">₹250</div>
+          <div class="credits-expiry">Valid until Dec 31, 2025</div>
+        </div>
+        <div class="offer-card">
+          <div class="offer-title">PAWS20 — ₹100 off</div>
+          <div class="offer-desc">Use on any grooming service above ₹500. Valid till Mar 31, 2025.</div>
+        </div>
+        <div class="offer-card">
+          <div class="offer-title">FIRSTVET — 20% off first vet visit</div>
+          <div class="offer-desc">Valid for first-time vet consultation bookings only.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="payment-container">
+  <h1>💳 Secure Payment</h1>
+  <p>Your payment is protected by 256-bit SSL encryption</p>
+
+  <div class="payment-layout">
+    <div class="card-form-wrap">
+      <div class="pay-method-label">Choose Payment Method</div>
+      <div class="payment-methods">
+        <div class="pm-btn" [class.active]="payMethod==='card'"   (click)="payMethod='card'"><span>💳</span> Card</div>
+        <div class="pm-btn" [class.active]="payMethod==='upi'"    (click)="payMethod='upi'"><span>📱</span> UPI</div>
+        <div class="pm-btn" [class.active]="payMethod==='wallet'" (click)="payMethod='wallet'"><span>👛</span> Wallet</div>
+        <div class="pm-btn" [class.active]="payMethod==='nb'"     (click)="payMethod='nb'"><span>🏦</span> Net Banking</div>
+      </div>
+
+      <!-- CARD -->
+      <div *ngIf="payMethod === 'card'">
+        <div class="card-preview">
+          <div class="card-chip"></div>
+          <div class="card-number-display">{{ cardNumDisplay }}</div>
+          <div class="card-meta">
+            <div><small>Card Holder</small><span>{{ cardNameDisplay }}</span></div>
+            <div><small>Expires</small><span>{{ cardExpDisplay }}</span></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Card Number</label>
+          <input type="text" [value]="cardNum" (input)="onCardNumInput($any($event.target).value)" maxlength="19" placeholder="1234 5678 9012 3456"/>
+        </div>
+        <div class="form-group">
+          <label>Name on Card</label>
+          <input type="text" [value]="cardName" (input)="onCardNameInput($any($event.target).value)" placeholder="Full name as on card"/>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Expiry Date</label>
+            <input type="text" [value]="cardExp" (input)="onCardExpInput($any($event.target).value)" maxlength="7" placeholder="MM / YY"/>
+          </div>
+          <div class="form-group">
+            <label>CVV</label>
+            <input type="password" [(ngModel)]="cardCvv" maxlength="3" placeholder="•••"/>
+          </div>
+        </div>
+        <div class="save-card-row">
+          <input type="checkbox" id="saveCard" [(ngModel)]="saveCard"/>
+          <label for="saveCard">Save card for future payments</label>
+        </div>
+      </div>
+
+      <!-- UPI -->
+      <div *ngIf="payMethod === 'upi'">
+        <div class="form-group">
+          <label>Enter UPI ID</label>
+          <div class="upi-input-wrap">
+            <input type="text" [(ngModel)]="upiId" placeholder="e.g. name@okaxis"/>
+            <button class="book-btn">Verify</button>
+          </div>
+        </div>
+        <div class="or-text">— or pay with —</div>
+        <div class="upi-apps">
+          <div class="upi-app" *ngFor="let app of upiApps">
+            <div class="uapp-icon">{{ app.icon }}</div>
+            <div class="uapp-name">{{ app.name }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WALLET -->
+      <div *ngIf="payMethod === 'wallet'">
+        <div class="wallet-list">
+          <div class="wallet-item" *ngFor="let w of wallets">
+            <span class="w-icon">{{ w.icon }}</span> {{ w.name }}
+          </div>
+        </div>
+      </div>
+
+      <!-- NET BANKING -->
+      <div *ngIf="payMethod === 'nb'">
+        <div class="bank-list">
+          <div class="bank-item" *ngFor="let b of banks">
+            <span class="b-icon">{{ b.icon }}</span> {{ b.name }}
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-primary pay-btn" (click)="processPayment()" [disabled]="processing">
+        {{ processing ? '⏳ Processing...' : '🔒 Pay ₹' + total + ' Now' }}
+      </button>
+
+      <div class="secure-badges">
+        <span class="sec-badge">🔒 256-bit SSL</span>
+        <span class="sec-badge">✅ PCI DSS Compliant</span>
+        <span class="sec-badge">🛡️ 100% Secure</span>
+        <span class="sec-badge">↩️ Easy Refund</span>
+      </div>
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="order-summary-pay">
+      <div class="os-header">
+        <div class="os-icon">🐾</div>
+        <div>
+          <div class="os-title">{{ state.selectedService }}</div>
+          <div class="os-sub">{{ state.petName || 'Your pet' }} · {{ state.selectedDate }} {{ state.selectedTime }}</div>
+        </div>
+      </div>
+      <div class="os-items">
+        <div class="os-item"><span class="oi-name">Service Fee</span><span class="oi-val">₹{{ fee }}</span></div>
+        <div class="os-item"><span class="oi-name">Platform Fee</span><span class="oi-val">₹29</span></div>
+        <div class="os-item"><span class="oi-name">GST (18%)</span><span class="oi-val">₹{{ tax }}</span></div>
+        <div class="os-item" *ngIf="disc > 0"><span class="oi-name disc">Promo (PAWS20)</span><span class="oi-val disc">−₹{{ disc }}</span></div>
+      </div>
+      <div class="os-total"><span>Total Payable</span><span>₹{{ total }}</span></div>
+      <div class="emi-note">💡 Available in 3 easy EMIs from ₹{{ emi }}/month on eligible cards</div>
+    </div>
+  </div>
+</div>

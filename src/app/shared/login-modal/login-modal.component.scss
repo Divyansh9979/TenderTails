@@ -1,0 +1,19 @@
+.modal-overlay { display:none; position:fixed; inset:0; background:rgba(27,47,110,0.5); backdrop-filter:blur(8px); z-index:9999; align-items:center; justify-content:center; &.open{display:flex;} }
+.modal-box { background:white; border-radius:28px; padding:44px; max-width:430px; width:90%; position:relative; animation:modalIn 0.35s ease; max-height:90vh; overflow-y:auto; }
+@keyframes modalIn { from{opacity:0;transform:scale(0.9) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+.modal-close { position:absolute; top:18px; right:18px; width:34px; height:34px; background:var(--sky-pale); border:none; border-radius:50%; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center; color:var(--text-mid); transition:all 0.2s; &:hover{background:var(--cream-warm);} }
+.modal-logo { display:flex; align-items:center; gap:8px; margin-bottom:20px;
+  span { font-family:'Nunito',sans-serif; font-size:1.3rem; color:var(--navy); strong{font-weight:800;} }
+}
+h2 { font-family:'Fraunces',serif; font-size:1.6rem; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.modal-sub { font-size:0.88rem; color:var(--text-soft); margin-bottom:28px; }
+.modal-tabs { display:flex; background:var(--sky-pale); border-radius:50px; padding:4px; margin-bottom:24px; }
+.mtab { flex:1; padding:9px; text-align:center; border-radius:50px; font-size:0.87rem; font-weight:700; cursor:pointer; color:var(--text-soft); transition:all 0.2s; &.active{background:white; color:var(--sky); box-shadow:var(--shadow-sm);} }
+.social-login { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
+.social-btn { display:flex; align-items:center; justify-content:center; gap:8px; padding:12px; border:1.5px solid rgba(27,47,110,0.12); border-radius:var(--radius-sm); cursor:pointer; font-size:0.85rem; font-weight:700; color:var(--navy); background:white; font-family:'Nunito',sans-serif; transition:all 0.2s; &:hover{border-color:var(--sky); background:var(--sky-pale);} }
+.divider-or { text-align:center; position:relative; margin:16px 0; font-size:0.78rem; color:var(--text-soft);
+  &::before,&::after{content:''; position:absolute; top:50%; height:1px; background:rgba(27,47,110,0.1); width:calc(50% - 20px);}
+  &::before{left:0;} &::after{right:0;}
+}
+.full-w { width:100%; justify-content:center; }
+.terms-text { font-size:0.75rem; color:var(--text-soft); text-align:center; margin-top:16px; line-height:1.6; a{color:var(--sky); cursor:pointer;} }

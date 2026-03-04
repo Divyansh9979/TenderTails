@@ -1,0 +1,10 @@
+.toast {
+  position: fixed; bottom: 32px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--brown); color: white;
+  padding: 13px 28px; border-radius: 50px;
+  font-size: 0.88rem; font-weight: 600; z-index: 99999;
+  opacity: 0; transition: all 0.35s; pointer-events: none;
+  white-space: nowrap;
+  &.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
