@@ -1,48 +1,16 @@
-.payment-container { max-width:840px; margin:0 auto; padding:60px 5%; }
-h1 { font-family:'Fraunces',serif; font-size:2rem; font-weight:700; color:var(--navy); margin-bottom:8px; }
-& > p { color:var(--text-soft); margin-bottom:40px; }
-.payment-layout { display:grid; grid-template-columns:1fr 300px; gap:28px; }
-
-.pay-method-label { font-size:0.72rem; font-weight:800; color:var(--text-soft); margin-bottom:14px; letter-spacing:2px; text-transform:uppercase; }
-.payment-methods { display:flex; gap:10px; margin-bottom:28px; flex-wrap:wrap; }
-.pm-btn { flex:1; min-width:80px; padding:12px; border:2px solid rgba(27,47,110,0.1); border-radius:var(--radius-sm); cursor:pointer; transition:all 0.2s; text-align:center; background:var(--sky-pale); font-family:'Nunito',sans-serif; font-size:0.82rem; font-weight:700; color:var(--text-mid);
-  span{display:block; font-size:1.3rem; margin-bottom:4px;}
-  &.active{border-color:var(--sky); background:white; color:var(--sky); box-shadow:0 0 0 3px rgba(75,191,222,0.15);}
+.payment-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
 }
-.card-form-wrap { background:white; border-radius:var(--radius); padding:28px; box-shadow:var(--shadow-sm); border:1.5px solid rgba(75,191,222,0.12); }
 
-.card-preview { background:linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius:18px; padding:28px; color:white; margin-bottom:28px; position:relative; overflow:hidden; min-height:170px;
-  &::before{content:''; position:absolute; width:200px; height:200px; border-radius:50%; background:rgba(75,191,222,0.12); top:-60px; right:-60px;}
-  &::after {content:''; position:absolute; width:140px; height:140px; border-radius:50%; background:rgba(75,191,222,0.07); bottom:-30px; left:30px;}
+.payment-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
-.card-chip { width:42px; height:32px; background:rgba(255,215,0,0.85); border-radius:5px; margin-bottom:24px; }
-.card-number-display { font-size:1.1rem; letter-spacing:3px; margin-bottom:20px; font-family:'Fraunces',serif; }
-.card-meta { display:flex; justify-content:space-between; font-size:0.78rem;
-  small{opacity:0.6; display:block; margin-bottom:2px; letter-spacing:1px; text-transform:uppercase; font-size:0.65rem;}
-}
-.save-card-row { display:flex; align-items:center; gap:8px; margin-bottom:20px; input{width:16px;height:16px;} label{font-size:0.83rem; color:var(--text-soft); cursor:pointer; font-weight:600;} }
-.upi-input-wrap { display:flex; gap:10px; margin-bottom:16px; input{flex:1; padding:12px 16px; border-radius:var(--radius-sm); border:1.5px solid rgba(27,47,110,0.12); font-family:'Nunito',sans-serif; font-size:0.9rem; background:var(--sky-pale); outline:none; &:focus{border-color:var(--sky);}} }
-.book-btn { background:var(--sky); color:white; border:none; padding:12px 18px; border-radius:var(--radius-sm); font-size:0.82rem; font-weight:800; cursor:pointer; font-family:'Nunito',sans-serif; white-space:nowrap; }
-.or-text { font-size:0.82rem; color:var(--text-soft); margin-bottom:16px; text-align:center; }
-.upi-apps { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
-.upi-app { background:white; border:1.5px solid rgba(27,47,110,0.1); border-radius:var(--radius-sm); padding:12px; text-align:center; cursor:pointer; transition:all 0.2s; &:hover{border-color:var(--sky);} }
-.uapp-icon{font-size:1.6rem;margin-bottom:4px;} .uapp-name{font-size:0.72rem;font-weight:700;color:var(--text-mid);}
-.wallet-list, .bank-list { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
-.wallet-item, .bank-item { background:white; border:1.5px solid rgba(27,47,110,0.1); border-radius:var(--radius-sm); padding:14px 16px; cursor:pointer; display:flex; align-items:center; gap:12px; transition:all 0.2s; font-size:0.88rem; font-weight:700; color:var(--navy); &:hover{border-color:var(--sky);} }
-.pay-btn { width:100%; justify-content:center; margin-top:20px; font-size:1rem; &:disabled{opacity:0.65; cursor:not-allowed; transform:none !important;} }
-.secure-badges { display:flex; gap:14px; margin-top:16px; flex-wrap:wrap; }
-.sec-badge { font-size:0.75rem; color:var(--text-soft); font-weight:600; }
 
-.order-summary-pay { background:white; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow-sm); height:fit-content; position:sticky; top:88px; border:1.5px solid rgba(75,191,222,0.12); }
-.os-header { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
-.os-icon { font-size:2rem; background:var(--sky-pale); width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
-.os-title { font-weight:800; color:var(--navy); font-size:0.95rem; }
-.os-sub   { font-size:0.78rem; color:var(--text-soft); }
-.os-items { margin-bottom:16px; }
-.os-item { display:flex; justify-content:space-between; font-size:0.85rem; padding:8px 0; border-bottom:1px solid rgba(27,47,110,0.06); &:last-child{border:none;} }
-.oi-name { color:var(--text-soft); font-weight:600; &.disc{color:var(--success);} }
-.oi-val  { font-weight:800; color:var(--navy); &.disc{color:var(--success);} }
-.os-total { display:flex; justify-content:space-between; font-size:1rem; font-weight:800; color:var(--navy); padding-top:12px; border-top:2px solid rgba(27,47,110,0.08); margin-bottom:16px; }
-.emi-note { background:var(--sky-pale); border-radius:var(--radius-sm); padding:10px 14px; font-size:0.8rem; color:var(--navy-mid); font-weight:700; }
-@media (max-width:900px) { .payment-layout{grid-template-columns:1fr;} .order-summary-pay{position:static;} }
-@media (max-width:600px) { .wallet-list,.bank-list{grid-template-columns:1fr;} }
+.payment-summary {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
